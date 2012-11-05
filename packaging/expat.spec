@@ -5,7 +5,7 @@ Url:            http://expat.sourceforge.net/
 Summary:        XML Parser Toolkit
 License:        MIT
 Group:          Development/Libraries/C and C++
-Source0:        %{name}-%{version}.tar.bz2
+Source0:        %{name}-%{version}.tar.gz
 Source1:        baselibs.conf
 BuildRequires:  gcc-c++
 BuildRequires:  libtool
