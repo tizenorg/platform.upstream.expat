@@ -7,8 +7,6 @@ License:        MIT
 Group:          Development/Libraries/C and C++
 Source0:        %{name}-%{version}.tar.bz2
 Source1:        baselibs.conf
-Patch2:         expat-visibility.patch
-Patch3:         expat-alloc-size.patch
 BuildRequires:  gcc-c++
 BuildRequires:  libtool
 BuildRequires:  pkg-config
@@ -95,10 +93,8 @@ declaration).
 
 %prep
 %setup -q 
-%patch2 -p1
-%patch3
-rm -f examples/*.dsp
 
+rm -f examples/*.dsp
 %build
 autoreconf -fi
 %configure --disable-static --with-pic
