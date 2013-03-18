@@ -4,7 +4,7 @@ Release:        0
 Url:            http://expat.sourceforge.net/
 Summary:        XML Parser Toolkit
 License:        MIT
-Group:          Development/Libraries/C and C++
+Group:          System/Libraries
 Source0:        %{name}-%{version}.tar.gz
 Source1:        baselibs.conf
 BuildRequires:  gcc-c++
@@ -36,7 +36,7 @@ declaration).
 
 %package -n libexpat
 Summary:        XML Parser Toolkit
-Group:          Development/Libraries/C and C++
+Group:          System/Libraries
 
 %description -n libexpat
 Expat is an XML 1.0 parser written in C. It aims to be fully
@@ -63,7 +63,7 @@ declaration).
 
 %package -n libexpat-devel
 Summary:        XML Parser Toolkit
-Group:          Development/Libraries/C and C++
+Group:          Development/Libraries
 Requires:       glibc-devel
 Requires:       libexpat = %{version}
 Provides:	expat-devel
@@ -113,7 +113,7 @@ rm doc/xmlwf.1
 
 %files
 %defattr(-, root, root)
-%doc COPYING 
+%license COPYING 
 %doc %{_mandir}/man?/*
 %{_bindir}/xmlwf
 
