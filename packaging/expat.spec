@@ -7,6 +7,7 @@ License:        MIT
 Group:          System/Libraries
 Source0:        %{name}-%{version}.tar.gz
 Source1:        baselibs.conf
+Source1001: 	expat.manifest
 BuildRequires:  gcc-c++
 BuildRequires:  libtool
 BuildRequires:  pkg-config
@@ -93,6 +94,7 @@ declaration).
 
 %prep
 %setup -q 
+cp %{SOURCE1001} .
 
 rm -f examples/*.dsp
 %build
@@ -112,16 +114,19 @@ rm doc/xmlwf.1
 %postun -n libexpat -p /sbin/ldconfig
 
 %files
+%manifest %{name}.manifest
 %defattr(-, root, root)
 %license COPYING 
 %doc %{_mandir}/man?/*
 %{_bindir}/xmlwf
 
 %files -n libexpat
+%manifest %{name}.manifest
 %defattr(-, root, root)
 %{_libdir}/libexpat.so.*
 
 %files -n libexpat-devel
+%manifest %{name}.manifest
 %defattr(-, root, root)
 %{_includedir}/*
 %{_libdir}/libexpat.so
