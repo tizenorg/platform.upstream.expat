@@ -93,13 +93,12 @@ internal subset or it is declared as stand-alone in the XML
 declaration).
 
 %prep
-%setup -q 
+%setup -q
 cp %{SOURCE1001} .
-
 rm -f examples/*.dsp
+
 %build
-autoreconf -fi
-%configure --disable-static --with-pic
+%reconfigure --disable-static --with-pic
 make %{?_smp_mflags}
 
 %check
@@ -116,7 +115,7 @@ rm doc/xmlwf.1
 %files
 %manifest %{name}.manifest
 %defattr(-, root, root)
-%license COPYING 
+%license COPYING
 %doc %{_mandir}/man?/*
 %{_bindir}/xmlwf
 
