@@ -53,14 +53,14 @@ typedef char XML_LChar;
 typedef long XML_Index;
 typedef unsigned long XML_Size;
 
-struct XML_ParserStruct;
+struct __attribute__ ((visibility ("default"))) XML_ParserStruct;
 typedef struct XML_ParserStruct *XML_Parser;
 
 typedef unsigned char XML_Bool;
 #define XML_TRUE   ((XML_Bool) 1)
 #define XML_FALSE  ((XML_Bool) 0)
 
-enum XML_Status {
+enum __attribute__ ((visibility ("default"))) XML_Status {
   XML_STATUS_ERROR = 0,
 #define XML_STATUS_ERROR XML_STATUS_ERROR
   XML_STATUS_OK = 1,
@@ -69,7 +69,7 @@ enum XML_Status {
 #define XML_STATUS_SUSPENDED XML_STATUS_SUSPENDED
 };
 
-enum XML_Error {
+enum __attribute__ ((visibility ("default"))) XML_Error {
   XML_ERROR_NONE,
   XML_ERROR_NO_MEMORY,
   XML_ERROR_SYNTAX,
@@ -113,7 +113,7 @@ enum XML_Error {
   XML_ERROR_RESERVED_NAMESPACE_URI
 };
 
-enum XML_Content_Type {
+enum __attribute__ ((visibility ("default"))) XML_Content_Type {
   XML_CTYPE_EMPTY = 1,
   XML_CTYPE_ANY,
   XML_CTYPE_MIXED,
@@ -122,16 +122,16 @@ enum XML_Content_Type {
   XML_CTYPE_SEQ
 };
 
-enum XML_Content_Quant {
+enum __attribute__ ((visibility ("default"))) XML_Content_Quant {
   XML_CQUANT_NONE,
   XML_CQUANT_OPT,
   XML_CQUANT_REP,
   XML_CQUANT_PLUS
 };
 
-typedef struct XML_cp XML_Content;
+typedef struct __attribute__ ((visibility ("default"))) XML_cp XML_Content;
 
-struct XML_cp {
+struct __attribute__ ((visibility ("default"))) XML_cp {
   enum XML_Content_Type         type;
   enum XML_Content_Quant        quant;
   XML_Char *                    name;
@@ -144,7 +144,7 @@ typedef void (*XML_ElementDeclHandler) (void *userData,
                                         const XML_Char *name,
                                         XML_Content *model);
 
-void
+__attribute__ ((visibility ("default"))) void
 XML_SetElementDeclHandler(XML_Parser parser,
                           XML_ElementDeclHandler eldecl);
 
@@ -156,7 +156,7 @@ typedef void (*XML_AttlistDeclHandler) (
                                     const XML_Char  *dflt,
                                     int              isrequired);
 
-void
+__attribute__ ((visibility ("default"))) void
 XML_SetAttlistDeclHandler(XML_Parser parser,
                           XML_AttlistDeclHandler attdecl);
 
@@ -165,7 +165,7 @@ typedef void (*XML_XmlDeclHandler) (void *userData,
                                     const XML_Char *encoding,
                                     int             standalone);
 
-void
+__attribute__ ((visibility ("default"))) void
 XML_SetXmlDeclHandler(XML_Parser parser,
                       XML_XmlDeclHandler xmldecl);
 
@@ -176,19 +176,19 @@ typedef struct {
   void (*free_fcn)(void *ptr);
 } XML_Memory_Handling_Suite;
 
-XML_Parser
+__attribute__ ((visibility ("default"))) XML_Parser
 XML_ParserCreate(const XML_Char *encoding);
 
-XML_Parser
+__attribute__ ((visibility ("default"))) XML_Parser
 XML_ParserCreateNS(const XML_Char *encoding, XML_Char namespaceSeparator);
 
 
-XML_Parser
+__attribute__ ((visibility ("default"))) XML_Parser
 XML_ParserCreate_MM(const XML_Char *encoding,
                     const XML_Memory_Handling_Suite *memsuite,
                     const XML_Char *namespaceSeparator);
 
-XML_Bool
+__attribute__ ((visibility ("default"))) XML_Bool
 XML_ParserReset(XML_Parser parser, const XML_Char *encoding);
 
 typedef void (*XML_StartElementHandler) (void *userData,
@@ -238,7 +238,7 @@ typedef void (*XML_EntityDeclHandler) (
                               const XML_Char *publicId,
                               const XML_Char *notationName);
 
-void
+__attribute__ ((visibility ("default"))) void
 XML_SetEntityDeclHandler(XML_Parser parser,
                          XML_EntityDeclHandler handler);
 
@@ -292,155 +292,155 @@ typedef int (*XML_UnknownEncodingHandler) (
                                     const XML_Char *name,
                                     XML_Encoding *info);
 
-void
+__attribute__ ((visibility ("default"))) void
 XML_SetElementHandler(XML_Parser parser,
                       XML_StartElementHandler start,
                       XML_EndElementHandler end);
 
-void
+__attribute__ ((visibility ("default"))) void
 XML_SetStartElementHandler(XML_Parser parser,
                            XML_StartElementHandler handler);
 
-void
+__attribute__ ((visibility ("default"))) void
 XML_SetEndElementHandler(XML_Parser parser,
                          XML_EndElementHandler handler);
 
-void
+__attribute__ ((visibility ("default"))) void
 XML_SetCharacterDataHandler(XML_Parser parser,
                             XML_CharacterDataHandler handler);
 
-void
+__attribute__ ((visibility ("default"))) void
 XML_SetProcessingInstructionHandler(XML_Parser parser,
                                     XML_ProcessingInstructionHandler handler);
-void
+__attribute__ ((visibility ("default"))) void
 XML_SetCommentHandler(XML_Parser parser,
                       XML_CommentHandler handler);
 
-void
+__attribute__ ((visibility ("default"))) void
 XML_SetCdataSectionHandler(XML_Parser parser,
                            XML_StartCdataSectionHandler start,
                            XML_EndCdataSectionHandler end);
 
-void
+__attribute__ ((visibility ("default"))) void
 XML_SetStartCdataSectionHandler(XML_Parser parser,
                                 XML_StartCdataSectionHandler start);
 
-void
+__attribute__ ((visibility ("default"))) void
 XML_SetEndCdataSectionHandler(XML_Parser parser,
                               XML_EndCdataSectionHandler end);
 
-void
+__attribute__ ((visibility ("default"))) void
 XML_SetDefaultHandler(XML_Parser parser,
                       XML_DefaultHandler handler);
 
-void
+__attribute__ ((visibility ("default"))) void
 XML_SetDefaultHandlerExpand(XML_Parser parser,
                             XML_DefaultHandler handler);
 
-void
+__attribute__ ((visibility ("default"))) void
 XML_SetDoctypeDeclHandler(XML_Parser parser,
                           XML_StartDoctypeDeclHandler start,
                           XML_EndDoctypeDeclHandler end);
 
-void
+__attribute__ ((visibility ("default"))) void
 XML_SetStartDoctypeDeclHandler(XML_Parser parser,
                                XML_StartDoctypeDeclHandler start);
 
-void
+__attribute__ ((visibility ("default"))) void
 XML_SetEndDoctypeDeclHandler(XML_Parser parser,
                              XML_EndDoctypeDeclHandler end);
 
-void
+__attribute__ ((visibility ("default"))) void
 XML_SetUnparsedEntityDeclHandler(XML_Parser parser,
                                  XML_UnparsedEntityDeclHandler handler);
 
-void
+__attribute__ ((visibility ("default"))) void
 XML_SetNotationDeclHandler(XML_Parser parser,
                            XML_NotationDeclHandler handler);
 
-void
+__attribute__ ((visibility ("default"))) void
 XML_SetNamespaceDeclHandler(XML_Parser parser,
                             XML_StartNamespaceDeclHandler start,
                             XML_EndNamespaceDeclHandler end);
 
-void
+__attribute__ ((visibility ("default"))) void
 XML_SetStartNamespaceDeclHandler(XML_Parser parser,
                                  XML_StartNamespaceDeclHandler start);
 
-void
+__attribute__ ((visibility ("default"))) void
 XML_SetEndNamespaceDeclHandler(XML_Parser parser,
                                XML_EndNamespaceDeclHandler end);
 
-void
+__attribute__ ((visibility ("default"))) void
 XML_SetNotStandaloneHandler(XML_Parser parser,
                             XML_NotStandaloneHandler handler);
 
-void
+__attribute__ ((visibility ("default"))) void
 XML_SetExternalEntityRefHandler(XML_Parser parser,
                                 XML_ExternalEntityRefHandler handler);
 
-void
+__attribute__ ((visibility ("default"))) void
 XML_SetExternalEntityRefHandlerArg(XML_Parser parser,
                                    void *arg);
 
-void
+__attribute__ ((visibility ("default"))) void
 XML_SetSkippedEntityHandler(XML_Parser parser,
                             XML_SkippedEntityHandler handler);
 
-void
+__attribute__ ((visibility ("default"))) void
 XML_SetUnknownEncodingHandler(XML_Parser parser,
                               XML_UnknownEncodingHandler handler,
                               void *encodingHandlerData);
 
-void
+__attribute__ ((visibility ("default"))) void
 XML_DefaultCurrent(XML_Parser parser);
 
-void
+__attribute__ ((visibility ("default"))) void
 XML_SetReturnNSTriplet(XML_Parser parser, int do_nst);
 
-void
+__attribute__ ((visibility ("default"))) void
 XML_SetUserData(XML_Parser parser, void *userData);
 
 #define XML_GetUserData(parser) (*(void **)(parser))
 
-enum XML_Status
+__attribute__ ((visibility ("default"))) enum XML_Status
 XML_SetEncoding(XML_Parser parser, const XML_Char *encoding);
 
-void
+__attribute__ ((visibility ("default"))) void
 XML_UseParserAsHandlerArg(XML_Parser parser);
 
-enum XML_Error
+__attribute__ ((visibility ("default"))) enum XML_Error
 XML_UseForeignDTD(XML_Parser parser, XML_Bool useDTD);
 
 
-enum XML_Status
+__attribute__ ((visibility ("default"))) enum XML_Status
 XML_SetBase(XML_Parser parser, const XML_Char *base);
 
-const XML_Char *
+__attribute__ ((visibility ("default"))) const XML_Char *
 XML_GetBase(XML_Parser parser);
 
-int
+__attribute__ ((visibility ("default"))) int
 XML_GetSpecifiedAttributeCount(XML_Parser parser);
 
-int
+__attribute__ ((visibility ("default"))) int
 XML_GetIdAttributeIndex(XML_Parser parser);
 
-enum XML_Status
+__attribute__ ((visibility ("default"))) enum XML_Status
 XML_Parse(XML_Parser parser, const char *s, int len, int isFinal);
 
-void *
+__attribute__ ((visibility ("default"))) void *
 XML_GetBuffer(XML_Parser parser, int len);
 
-enum XML_Status
+__attribute__ ((visibility ("default"))) enum XML_Status
 XML_ParseBuffer(XML_Parser parser, int len, int isFinal);
 
-enum XML_Status
+__attribute__ ((visibility ("default"))) enum XML_Status
 XML_StopParser(XML_Parser parser, XML_Bool resumable);
 
-enum XML_Status
+__attribute__ ((visibility ("default"))) enum XML_Status
 XML_ResumeParser(XML_Parser parser);
 
-enum XML_Parsing {
+enum __attribute__ ((visibility ("default"))) XML_Parsing {
   XML_INITIALIZED,
   XML_PARSING,
   XML_FINISHED,
@@ -452,35 +452,35 @@ typedef struct {
   XML_Bool finalBuffer;
 } XML_ParsingStatus;
 
-void
+__attribute__ ((visibility ("default"))) void
 XML_GetParsingStatus(XML_Parser parser, XML_ParsingStatus *status);
 
-XML_Parser
+__attribute__ ((visibility ("default"))) XML_Parser
 XML_ExternalEntityParserCreate(XML_Parser parser,
                                const XML_Char *context,
                                const XML_Char *encoding);
 
-enum XML_ParamEntityParsing {
+enum __attribute__ ((visibility ("default"))) XML_ParamEntityParsing {
   XML_PARAM_ENTITY_PARSING_NEVER,
   XML_PARAM_ENTITY_PARSING_UNLESS_STANDALONE,
   XML_PARAM_ENTITY_PARSING_ALWAYS
 };
 
-int
+__attribute__ ((visibility ("default"))) int
 XML_SetParamEntityParsing(XML_Parser parser,
                           enum XML_ParamEntityParsing parsing);
 
-enum XML_Error
+__attribute__ ((visibility ("default"))) enum XML_Error
 XML_GetErrorCode(XML_Parser parser);
 
-int XML_GetCurrentLineNumber(XML_Parser parser);
-int XML_GetCurrentColumnNumber(XML_Parser parser);
-long XML_GetCurrentByteIndex(XML_Parser parser);
+__attribute__ ((visibility ("default"))) int XML_GetCurrentLineNumber(XML_Parser parser);
+__attribute__ ((visibility ("default"))) int XML_GetCurrentColumnNumber(XML_Parser parser);
+__attribute__ ((visibility ("default"))) long XML_GetCurrentByteIndex(XML_Parser parser);
 
-int
+__attribute__ ((visibility ("default"))) int
 XML_GetCurrentByteCount(XML_Parser parser);
 
-const char *
+__attribute__ ((visibility ("default"))) const char *
 XML_GetInputContext(XML_Parser parser,
                     int *offset,
                     int *size);
@@ -489,25 +489,25 @@ XML_GetInputContext(XML_Parser parser,
 #define XML_GetErrorColumnNumber XML_GetCurrentColumnNumber
 #define XML_GetErrorByteIndex    XML_GetCurrentByteIndex
 
-void
+__attribute__ ((visibility ("default"))) void
 XML_FreeContentModel(XML_Parser parser, XML_Content *model);
 
-void *
+__attribute__ ((visibility ("default"))) void *
 XML_MemMalloc(XML_Parser parser, size_t size);
 
-void *
+__attribute__ ((visibility ("default"))) void *
 XML_MemRealloc(XML_Parser parser, void *ptr, size_t size);
 
-void
+__attribute__ ((visibility ("default"))) void
 XML_MemFree(XML_Parser parser, void *ptr);
 
-void
+__attribute__ ((visibility ("default"))) void
 XML_ParserFree(XML_Parser parser);
 
-const XML_LChar *
+__attribute__ ((visibility ("default"))) const XML_LChar *
 XML_ErrorString(enum XML_Error code);
 
-const XML_LChar *
+__attribute__ ((visibility ("default"))) const XML_LChar *
 XML_ExpatVersion(void);
 
 typedef struct {
@@ -516,10 +516,10 @@ typedef struct {
   int micro;
 } XML_Expat_Version;
 
-XML_Expat_Version 
+__attribute__ ((visibility ("default"))) XML_Expat_Version 
 XML_ExpatVersionInfo(void);
 
-enum XML_FeatureEnum {
+enum __attribute__ ((visibility ("default"))) XML_FeatureEnum {
   XML_FEATURE_END = 0,
   XML_FEATURE_UNICODE,
   XML_FEATURE_UNICODE_WCHAR_T,
@@ -538,7 +538,7 @@ typedef struct {
   long int              value;
 } XML_Feature;
 
-const XML_Feature *
+__attribute__ ((visibility ("default"))) const XML_Feature *
 XML_GetFeatureList(void);
 
 
