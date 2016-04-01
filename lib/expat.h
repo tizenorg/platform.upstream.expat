@@ -151,7 +151,7 @@ typedef void (XMLCALL *XML_ElementDeclHandler) (void *userData,
                                                 const XML_Char *name,
                                                 XML_Content *model);
 
-XMLPARSEAPI(void)
+__attribute__ ((visibility ("default"))) XMLPARSEAPI(void)
 XML_SetElementDeclHandler(XML_Parser parser,
                           XML_ElementDeclHandler eldecl);
 
@@ -171,7 +171,7 @@ typedef void (XMLCALL *XML_AttlistDeclHandler) (
                                     const XML_Char  *dflt,
                                     int              isrequired);
 
-XMLPARSEAPI(void)
+__attribute__ ((visibility ("default"))) XMLPARSEAPI(void)
 XML_SetAttlistDeclHandler(XML_Parser parser,
                           XML_AttlistDeclHandler attdecl);
 
@@ -188,7 +188,7 @@ typedef void (XMLCALL *XML_XmlDeclHandler) (void           *userData,
                                             const XML_Char *encoding,
                                             int             standalone);
 
-XMLPARSEAPI(void)
+__attribute__ ((visibility ("default"))) XMLPARSEAPI(void)
 XML_SetXmlDeclHandler(XML_Parser parser,
                       XML_XmlDeclHandler xmldecl);
 
@@ -202,7 +202,7 @@ typedef struct {
 /* Constructs a new parser; encoding is the encoding specified by the
    external protocol or NULL if there is none specified.
 */
-XMLPARSEAPI(XML_Parser)
+__attribute__ ((visibility ("default"))) XMLPARSEAPI(XML_Parser)
 XML_ParserCreate(const XML_Char *encoding);
 
 /* Constructs a new parser and namespace processor.  Element type
@@ -216,7 +216,7 @@ XML_ParserCreate(const XML_Char *encoding);
    It is a programming error to use the separator '\0' with namespace
    triplets (see XML_SetReturnNSTriplet).
 */
-XMLPARSEAPI(XML_Parser)
+__attribute__ ((visibility ("default"))) XMLPARSEAPI(XML_Parser)
 XML_ParserCreateNS(const XML_Char *encoding, XML_Char namespaceSeparator);
 
 
@@ -229,7 +229,7 @@ XML_ParserCreateNS(const XML_Char *encoding, XML_Char namespaceSeparator);
    All further memory operations used for the created parser will come from
    the given suite.
 */
-XMLPARSEAPI(XML_Parser)
+__attribute__ ((visibility ("default"))) XMLPARSEAPI(XML_Parser)
 XML_ParserCreate_MM(const XML_Char *encoding,
                     const XML_Memory_Handling_Suite *memsuite,
                     const XML_Char *namespaceSeparator);
@@ -243,7 +243,7 @@ XML_ParserCreate_MM(const XML_Char *encoding,
 
    Added in Expat 1.95.3.
 */
-XMLPARSEAPI(XML_Bool)
+__attribute__ ((visibility ("default"))) XMLPARSEAPI(XML_Bool)
 XML_ParserReset(XML_Parser parser, const XML_Char *encoding);
 
 /* atts is array of name/value pairs, terminated by 0;
@@ -337,7 +337,7 @@ typedef void (XMLCALL *XML_EntityDeclHandler) (
                               const XML_Char *publicId,
                               const XML_Char *notationName);
 
-XMLPARSEAPI(void)
+__attribute__ ((visibility ("default"))) XMLPARSEAPI(void)
 XML_SetEntityDeclHandler(XML_Parser parser,
                          XML_EntityDeclHandler handler);
 
@@ -530,40 +530,40 @@ typedef int (XMLCALL *XML_UnknownEncodingHandler) (
                                     const XML_Char *name,
                                     XML_Encoding *info);
 
-XMLPARSEAPI(void)
+__attribute__ ((visibility ("default"))) XMLPARSEAPI(void)
 XML_SetElementHandler(XML_Parser parser,
                       XML_StartElementHandler start,
                       XML_EndElementHandler end);
 
-XMLPARSEAPI(void)
+__attribute__ ((visibility ("default"))) XMLPARSEAPI(void)
 XML_SetStartElementHandler(XML_Parser parser,
                            XML_StartElementHandler handler);
 
-XMLPARSEAPI(void)
+__attribute__ ((visibility ("default"))) XMLPARSEAPI(void)
 XML_SetEndElementHandler(XML_Parser parser,
                          XML_EndElementHandler handler);
 
-XMLPARSEAPI(void)
+__attribute__ ((visibility ("default"))) XMLPARSEAPI(void)
 XML_SetCharacterDataHandler(XML_Parser parser,
                             XML_CharacterDataHandler handler);
 
-XMLPARSEAPI(void)
+__attribute__ ((visibility ("default"))) XMLPARSEAPI(void)
 XML_SetProcessingInstructionHandler(XML_Parser parser,
                                     XML_ProcessingInstructionHandler handler);
-XMLPARSEAPI(void)
+__attribute__ ((visibility ("default"))) XMLPARSEAPI(void)
 XML_SetCommentHandler(XML_Parser parser,
                       XML_CommentHandler handler);
 
-XMLPARSEAPI(void)
+__attribute__ ((visibility ("default"))) XMLPARSEAPI(void)
 XML_SetCdataSectionHandler(XML_Parser parser,
                            XML_StartCdataSectionHandler start,
                            XML_EndCdataSectionHandler end);
 
-XMLPARSEAPI(void)
+__attribute__ ((visibility ("default"))) XMLPARSEAPI(void)
 XML_SetStartCdataSectionHandler(XML_Parser parser,
                                 XML_StartCdataSectionHandler start);
 
-XMLPARSEAPI(void)
+__attribute__ ((visibility ("default"))) XMLPARSEAPI(void)
 XML_SetEndCdataSectionHandler(XML_Parser parser,
                               XML_EndCdataSectionHandler end);
 
@@ -571,7 +571,7 @@ XML_SetEndCdataSectionHandler(XML_Parser parser,
    internal entities. These entity references will be passed to the
    default handler, or to the skipped entity handler, if one is set.
 */
-XMLPARSEAPI(void)
+__attribute__ ((visibility ("default"))) XMLPARSEAPI(void)
 XML_SetDefaultHandler(XML_Parser parser,
                       XML_DefaultHandler handler);
 
@@ -579,49 +579,49 @@ XML_SetDefaultHandler(XML_Parser parser,
    internal entities.  The entity reference will not be passed to the
    default handler.
 */
-XMLPARSEAPI(void)
+__attribute__ ((visibility ("default"))) XMLPARSEAPI(void)
 XML_SetDefaultHandlerExpand(XML_Parser parser,
                             XML_DefaultHandler handler);
 
-XMLPARSEAPI(void)
+__attribute__ ((visibility ("default"))) XMLPARSEAPI(void)
 XML_SetDoctypeDeclHandler(XML_Parser parser,
                           XML_StartDoctypeDeclHandler start,
                           XML_EndDoctypeDeclHandler end);
 
-XMLPARSEAPI(void)
+__attribute__ ((visibility ("default"))) XMLPARSEAPI(void)
 XML_SetStartDoctypeDeclHandler(XML_Parser parser,
                                XML_StartDoctypeDeclHandler start);
 
-XMLPARSEAPI(void)
+__attribute__ ((visibility ("default"))) XMLPARSEAPI(void)
 XML_SetEndDoctypeDeclHandler(XML_Parser parser,
                              XML_EndDoctypeDeclHandler end);
 
-XMLPARSEAPI(void)
+__attribute__ ((visibility ("default"))) XMLPARSEAPI(void)
 XML_SetUnparsedEntityDeclHandler(XML_Parser parser,
                                  XML_UnparsedEntityDeclHandler handler);
 
-XMLPARSEAPI(void)
+__attribute__ ((visibility ("default"))) XMLPARSEAPI(void)
 XML_SetNotationDeclHandler(XML_Parser parser,
                            XML_NotationDeclHandler handler);
 
-XMLPARSEAPI(void)
+__attribute__ ((visibility ("default"))) XMLPARSEAPI(void)
 XML_SetNamespaceDeclHandler(XML_Parser parser,
                             XML_StartNamespaceDeclHandler start,
                             XML_EndNamespaceDeclHandler end);
 
-XMLPARSEAPI(void)
+__attribute__ ((visibility ("default"))) XMLPARSEAPI(void)
 XML_SetStartNamespaceDeclHandler(XML_Parser parser,
                                  XML_StartNamespaceDeclHandler start);
 
-XMLPARSEAPI(void)
+__attribute__ ((visibility ("default"))) XMLPARSEAPI(void)
 XML_SetEndNamespaceDeclHandler(XML_Parser parser,
                                XML_EndNamespaceDeclHandler end);
 
-XMLPARSEAPI(void)
+__attribute__ ((visibility ("default"))) XMLPARSEAPI(void)
 XML_SetNotStandaloneHandler(XML_Parser parser,
                             XML_NotStandaloneHandler handler);
 
-XMLPARSEAPI(void)
+__attribute__ ((visibility ("default"))) XMLPARSEAPI(void)
 XML_SetExternalEntityRefHandler(XML_Parser parser,
                                 XML_ExternalEntityRefHandler handler);
 
@@ -629,15 +629,15 @@ XML_SetExternalEntityRefHandler(XML_Parser parser,
    passed as the first argument to the external entity ref handler
    instead of the parser object.
 */
-XMLPARSEAPI(void)
+__attribute__ ((visibility ("default"))) XMLPARSEAPI(void)
 XML_SetExternalEntityRefHandlerArg(XML_Parser parser,
                                    void *arg);
 
-XMLPARSEAPI(void)
+__attribute__ ((visibility ("default"))) XMLPARSEAPI(void)
 XML_SetSkippedEntityHandler(XML_Parser parser,
                             XML_SkippedEntityHandler handler);
 
-XMLPARSEAPI(void)
+__attribute__ ((visibility ("default"))) XMLPARSEAPI(void)
 XML_SetUnknownEncodingHandler(XML_Parser parser,
                               XML_UnknownEncodingHandler handler,
                               void *encodingHandlerData);
@@ -646,7 +646,7 @@ XML_SetUnknownEncodingHandler(XML_Parser parser,
    element, processing instruction or character data.  It causes the
    corresponding markup to be passed to the default handler.
 */
-XMLPARSEAPI(void)
+__attribute__ ((visibility ("default"))) XMLPARSEAPI(void)
 XML_DefaultCurrent(XML_Parser parser);
 
 /* If do_nst is non-zero, and namespace processing is in effect, and
@@ -663,11 +663,11 @@ XML_DefaultCurrent(XML_Parser parser);
      XML_ParseBuffer has no effect.
 */
 
-XMLPARSEAPI(void)
+__attribute__ ((visibility ("default"))) XMLPARSEAPI(void)
 XML_SetReturnNSTriplet(XML_Parser parser, int do_nst);
 
 /* This value is passed as the userData argument to callbacks. */
-XMLPARSEAPI(void)
+__attribute__ ((visibility ("default"))) XMLPARSEAPI(void)
 XML_SetUserData(XML_Parser parser, void *userData);
 
 /* Returns the last value set by XML_SetUserData or NULL. */
@@ -679,14 +679,14 @@ XML_SetUserData(XML_Parser parser, void *userData);
    Note: Calling XML_SetEncoding after XML_Parse or XML_ParseBuffer
      has no effect and returns XML_STATUS_ERROR.
 */
-XMLPARSEAPI(enum XML_Status)
+__attribute__ ((visibility ("default"))) XMLPARSEAPI(enum XML_Status)
 XML_SetEncoding(XML_Parser parser, const XML_Char *encoding);
 
 /* If this function is called, then the parser will be passed as the
    first argument to callbacks instead of userData.  The userData will
    still be accessible using XML_GetUserData.
 */
-XMLPARSEAPI(void)
+__attribute__ ((visibility ("default"))) XMLPARSEAPI(void)
 XML_UseParserAsHandlerArg(XML_Parser parser);
 
 /* If useDTD == XML_TRUE is passed to this function, then the parser
@@ -707,7 +707,7 @@ XML_UseParserAsHandlerArg(XML_Parser parser);
    Note: If XML_DTD is not defined when Expat is compiled, returns
      XML_ERROR_FEATURE_REQUIRES_XML_DTD.
 */
-XMLPARSEAPI(enum XML_Error)
+__attribute__ ((visibility ("default"))) XMLPARSEAPI(enum XML_Error)
 XML_UseForeignDTD(XML_Parser parser, XML_Bool useDTD);
 
 
@@ -719,10 +719,10 @@ XML_UseForeignDTD(XML_Parser parser, XML_Bool useDTD);
    argument will be copied.  Returns XML_STATUS_ERROR if out of memory,
    XML_STATUS_OK otherwise.
 */
-XMLPARSEAPI(enum XML_Status)
+__attribute__ ((visibility ("default"))) XMLPARSEAPI(enum XML_Status)
 XML_SetBase(XML_Parser parser, const XML_Char *base);
 
-XMLPARSEAPI(const XML_Char *)
+__attribute__ ((visibility ("default"))) XMLPARSEAPI(const XML_Char *)
 XML_GetBase(XML_Parser parser);
 
 /* Returns the number of the attribute/value pairs passed in last call
@@ -731,7 +731,7 @@ XML_GetBase(XML_Parser parser);
    this correspondds to an index into the atts array passed to the
    XML_StartElementHandler.
 */
-XMLPARSEAPI(int)
+__attribute__ ((visibility ("default"))) XMLPARSEAPI(int)
 XML_GetSpecifiedAttributeCount(XML_Parser parser);
 
 /* Returns the index of the ID attribute passed in the last call to
@@ -739,7 +739,7 @@ XML_GetSpecifiedAttributeCount(XML_Parser parser);
    attribute/value pair counts as 2; thus this correspondds to an
    index into the atts array passed to the XML_StartElementHandler.
 */
-XMLPARSEAPI(int)
+__attribute__ ((visibility ("default"))) XMLPARSEAPI(int)
 XML_GetIdAttributeIndex(XML_Parser parser);
 
 #ifdef XML_ATTR_INFO
@@ -774,13 +774,13 @@ XML_GetAttributeInfo(XML_Parser parser);
    1.95.x series, has always returned exactly one of the XML_Status
    values.
 */
-XMLPARSEAPI(enum XML_Status)
+__attribute__ ((visibility ("default"))) XMLPARSEAPI(enum XML_Status)
 XML_Parse(XML_Parser parser, const char *s, int len, int isFinal);
 
-XMLPARSEAPI(void *)
+__attribute__ ((visibility ("default"))) XMLPARSEAPI(void *)
 XML_GetBuffer(XML_Parser parser, int len);
 
-XMLPARSEAPI(enum XML_Status)
+__attribute__ ((visibility ("default"))) XMLPARSEAPI(enum XML_Status)
 XML_ParseBuffer(XML_Parser parser, int len, int isFinal);
 
 /* Stops parsing, causing XML_Parse() or XML_ParseBuffer() to return.
@@ -814,7 +814,7 @@ XML_ParseBuffer(XML_Parser parser, int len, int isFinal);
 
    When suspended, parsing can be resumed by calling XML_ResumeParser(). 
 */
-XMLPARSEAPI(enum XML_Status)
+__attribute__ ((visibility ("default"))) XMLPARSEAPI(enum XML_Status)
 XML_StopParser(XML_Parser parser, XML_Bool resumable);
 
 /* Resumes parsing after it has been suspended with XML_StopParser().
@@ -829,7 +829,7 @@ XML_StopParser(XML_Parser parser, XML_Bool resumable);
    That is, the parent parser will not resume by itself and it is up to the
    application to call XML_ResumeParser() on it at the appropriate moment.
 */
-XMLPARSEAPI(enum XML_Status)
+__attribute__ ((visibility ("default"))) XMLPARSEAPI(enum XML_Status)
 XML_ResumeParser(XML_Parser parser);
 
 enum XML_Parsing {
@@ -849,7 +849,7 @@ typedef struct {
    XXX XML_Parse() and XML_ParseBuffer() should return XML_ParsingStatus,
    XXX with XML_FINISHED_OK or XML_FINISHED_ERROR replacing XML_FINISHED
 */
-XMLPARSEAPI(void)
+__attribute__ ((visibility ("default"))) XMLPARSEAPI(void)
 XML_GetParsingStatus(XML_Parser parser, XML_ParsingStatus *status);
 
 /* Creates an XML_Parser object that can parse an external general
@@ -868,7 +868,7 @@ XML_GetParsingStatus(XML_Parser parser, XML_ParsingStatus *status);
    initialized from the parser argument.  Returns NULL if out of memory.
    Otherwise returns a new XML_Parser object.
 */
-XMLPARSEAPI(XML_Parser)
+__attribute__ ((visibility ("default"))) XMLPARSEAPI(XML_Parser)
 XML_ExternalEntityParserCreate(XML_Parser parser,
                                const XML_Char *context,
                                const XML_Char *encoding);
@@ -902,7 +902,7 @@ enum XML_ParamEntityParsing {
    Note: If XML_SetParamEntityParsing is called after XML_Parse or
       XML_ParseBuffer, then it has no effect and will always return 0.
 */
-XMLPARSEAPI(int)
+__attribute__ ((visibility ("default"))) XMLPARSEAPI(int)
 XML_SetParamEntityParsing(XML_Parser parser,
                           enum XML_ParamEntityParsing parsing);
 
@@ -911,14 +911,14 @@ XML_SetParamEntityParsing(XML_Parser parser,
    function behavior. This must be called before parsing is started.
    Returns 1 if successful, 0 when called after parsing has started.
 */
-XMLPARSEAPI(int)
+__attribute__ ((visibility ("default"))) XMLPARSEAPI(int)
 XML_SetHashSalt(XML_Parser parser,
                 unsigned long hash_salt);
 
 /* If XML_Parse or XML_ParseBuffer have returned XML_STATUS_ERROR, then
    XML_GetErrorCode returns information about the error.
 */
-XMLPARSEAPI(enum XML_Error)
+__attribute__ ((visibility ("default"))) XMLPARSEAPI(enum XML_Error)
 XML_GetErrorCode(XML_Parser parser);
 
 /* These functions return information about the current parse
@@ -937,14 +937,14 @@ XML_GetErrorCode(XML_Parser parser);
    was detected; otherwise the location is the location of the last
    parse event, as described above.
 */
-XMLPARSEAPI(XML_Size) XML_GetCurrentLineNumber(XML_Parser parser);
-XMLPARSEAPI(XML_Size) XML_GetCurrentColumnNumber(XML_Parser parser);
-XMLPARSEAPI(XML_Index) XML_GetCurrentByteIndex(XML_Parser parser);
+__attribute__ ((visibility ("default"))) XMLPARSEAPI(XML_Size) XML_GetCurrentLineNumber(XML_Parser parser);
+__attribute__ ((visibility ("default"))) XMLPARSEAPI(XML_Size) XML_GetCurrentColumnNumber(XML_Parser parser);
+__attribute__ ((visibility ("default"))) XMLPARSEAPI(XML_Index) XML_GetCurrentByteIndex(XML_Parser parser);
 
 /* Return the number of bytes in the current event.
    Returns 0 if the event is in an internal entity.
 */
-XMLPARSEAPI(int)
+__attribute__ ((visibility ("default"))) XMLPARSEAPI(int)
 XML_GetCurrentByteCount(XML_Parser parser);
 
 /* If XML_CONTEXT_BYTES is defined, returns the input buffer, sets
@@ -957,7 +957,7 @@ XML_GetCurrentByteCount(XML_Parser parser);
    NOTE: The character pointer returned should not be used outside
    the handler that makes the call.
 */
-XMLPARSEAPI(const char *)
+__attribute__ ((visibility ("default"))) XMLPARSEAPI(const char *)
 XML_GetInputContext(XML_Parser parser,
                     int *offset,
                     int *size);
@@ -968,33 +968,33 @@ XML_GetInputContext(XML_Parser parser,
 #define XML_GetErrorByteIndex    XML_GetCurrentByteIndex
 
 /* Frees the content model passed to the element declaration handler */
-XMLPARSEAPI(void)
+__attribute__ ((visibility ("default"))) XMLPARSEAPI(void)
 XML_FreeContentModel(XML_Parser parser, XML_Content *model);
 
 /* Exposing the memory handling functions used in Expat */
-XMLPARSEAPI(void *)
+__attribute__ ((visibility ("default"))) XMLPARSEAPI(void *)
 XML_ATTR_MALLOC
 XML_ATTR_ALLOC_SIZE(2)
 XML_MemMalloc(XML_Parser parser, size_t size);
 
-XMLPARSEAPI(void *)
+__attribute__ ((visibility ("default"))) XMLPARSEAPI(void *)
 XML_ATTR_MALLOC
 XML_ATTR_ALLOC_SIZE(3)
 XML_MemRealloc(XML_Parser parser, void *ptr, size_t size);
 
-XMLPARSEAPI(void)
+__attribute__ ((visibility ("default"))) XMLPARSEAPI(void)
 XML_MemFree(XML_Parser parser, void *ptr);
 
 /* Frees memory used by the parser. */
-XMLPARSEAPI(void)
+__attribute__ ((visibility ("default"))) XMLPARSEAPI(void)
 XML_ParserFree(XML_Parser parser);
 
 /* Returns a string describing the error. */
-XMLPARSEAPI(const XML_LChar *)
+__attribute__ ((visibility ("default"))) XMLPARSEAPI(const XML_LChar *)
 XML_ErrorString(enum XML_Error code);
 
 /* Return a string containing the version number of this expat */
-XMLPARSEAPI(const XML_LChar *)
+__attribute__ ((visibility ("default"))) XMLPARSEAPI(const XML_LChar *)
 XML_ExpatVersion(void);
 
 typedef struct {
@@ -1006,7 +1006,7 @@ typedef struct {
 /* Return an XML_Expat_Version structure containing numeric version
    number information for this version of expat.
 */
-XMLPARSEAPI(XML_Expat_Version)
+__attribute__ ((visibility ("default"))) XMLPARSEAPI(XML_Expat_Version)
 XML_ExpatVersionInfo(void);
 
 /* Added in Expat 1.95.5. */
@@ -1031,7 +1031,7 @@ typedef struct {
   long int              value;
 } XML_Feature;
 
-XMLPARSEAPI(const XML_Feature *)
+__attribute__ ((visibility ("default"))) XMLPARSEAPI(const XML_Feature *)
 XML_GetFeatureList(void);
 
 

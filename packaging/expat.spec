@@ -98,6 +98,9 @@ cp %{SOURCE1001} .
 rm -f examples/*.dsp
 
 %build
+export CFLAGS+=" -fvisibility=hidden"
+  export CXXFLAGS+=" -fvisibility=hidden"
+  
 %reconfigure --disable-static --with-pic
 make %{?_smp_mflags}
 
